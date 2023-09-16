@@ -62,20 +62,51 @@ class AttendanceController extends Controller
 
     // Simpan data record absensi
     public function store(Request $request, $employee_id) {
-        $attendance = new Attendance([
-            'employee_id' => $employee_id,
-            'entry_ip' => $request->ip(),
-            'time' => date('h'),
-            'entry_location' => $request->entry_location
+        // Validasi request sesuai kebutuhan Anda
+        $request->validate([
+            'entry_location' => 'required', // Sesuaikan dengan aturan validasi yang sesuai
         ]);
-        $attendance->save();
-        if(date('h')<=9) {
-         $request->session()->flash('success', 'Absensi Anda berhasil direkam sistem');
-         } else {
-            $request->session()->flash('success', ' Absensi Anda berhasil direkam sistem dengan catatan keterlambatan');
-         }
-        return redirect()->route('employee.attendance.create')->with('employee', Auth::user()->employee);
+        // dd($request->all());
+        // Memeriksa apakah berkas gambar sudah ada dalam request
+        if ($request->hasFile('attendance_image')) {
+        
+
+            // Mengambil berkas gambar dari request
+            $image = $request->file('attendance_image');
+            
+            // Menghasilkan nama unik untuk berkas (misalnya, timestamp)
+            $filename = time() . '_' . $image->getClientOriginalName();
+    
+            // Menyimpan berkas gambar ke lokasi yang ditentukan (misalnya, folder 'attendance_images')
+            // $image->storeAs('attendance_images', $filename);
+            // $image->storeAs('public/img', $filename);
+            $image->move(public_path('img'), $filename);
+            // Membuat objek Attendance
+            $attendance = new Attendance([
+                'employee_id' => $employee_id,
+                'entry_ip' => $request->ip(),
+                'time' => date('h:i:s'), // Anda mungkin ingin menyimpan waktu lengkap, bukan hanya jam
+                'entry_location' => $request->input('entry_location'),
+                'attendance_images' => $filename, // Menyimpan nama berkas dalam database
+            ]);
+    
+            // Menyimpan data kehadiran
+            $attendance->save();
+    
+            // Menentukan pesan sesuai waktu absensi
+            $message = (date('h') <= 9) ? 'Absensi Anda berhasil direkam sistem' : 'Absensi Anda berhasil direkam sistem dengan catatan keterlambatan';
+    
+            // Menyimpan pesan flash ke sesi
+            $request->session()->flash('success', $message);
+    
+            // Redirect kembali ke halaman yang sesuai, misalnya halaman untuk membuat kehadiran
+            return redirect()->route('employee.attendance.create')->with('employee', Auth::user()->employee);
+        } else {
+            // Penanganan jika berkas gambar tidak ditemukan
+            return redirect()->route('employee.attendance.create')->with('error', 'Berkas gambar absensi tidak ditemukan');
+        }
     }
+    
 
     // Hapus data record absensi
     public function update(Request $request, $attendance_id) {

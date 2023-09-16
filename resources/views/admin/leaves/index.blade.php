@@ -59,6 +59,7 @@
                                         <th class="none">Tanggal Awal</th>
                                         <th class="none">Tanggal Akhir</th>
                                         <th class="none">Deskripsi</th>
+                                        <th class="none">Lampiran Cuti</th>
                                         <td class="none">Aksi</td>
                                     </tr>
                                 </thead>
@@ -94,6 +95,13 @@
                                         <td>Sehari</td>
                                         @endif
                                         <td>{{ $leave->description }}</td>
+                                        <td>
+                                        @if ($leave->attachment)
+                                        <a href="{{ asset($leave->attachment) }}" class="btn btn-primary" target="_blank">Lihat Berkas</a>
+                                        @else
+                                            Tidak ada berkas
+                                        @endif
+                                        </td>
                                         <td>
                                             <button 
                                             class="btn btn-flat btn-info"

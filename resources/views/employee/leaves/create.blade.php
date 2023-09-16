@@ -40,7 +40,7 @@
                             </h3>
                         </div>
                         @include('messages.alerts')
-                        <form action="{{ route('employee.leaves.store', $employee->id) }}" method="POST">
+                        <form action="{{ route('employee.leaves.store', $employee->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -92,7 +92,12 @@
                                     <label for="">Seleksi Data </label>
                                     <input type="text" name="date" id="date" class="form-control">
                                 </div>
+                                <div class="form-group">
+                                    <label for="attachment">Lampiran (Opsional)</label>
+                                    <input type="file" class="form-control" name="attachment" id="attachment">
+                                </div>
                             </div>
+                      
                             <div class="card-footer">
                                 <button class="btn btn-primary" type="submit">Ajukan</button>
                             </div>

@@ -42,9 +42,9 @@
                         @include('messages.alerts')
                         <!-- form start -->
                         @if (!$attendance)
-                        <form role="form" method="post" action="{{ route('employee.attendance.store', $employee->id) }}" >
+                        <form role="form" method="post" action="{{ route('employee.attendance.store', $employee->id) }}"  enctype="multipart/form-data">
                         @else
-                        <form role="form" method="post" action="{{ route('employee.attendance.update', $attendance->id) }}" >
+                        <form role="form" method="post" action="{{ route('employee.attendance.update', $attendance->id) }}"  enctype="multipart/form-data">
                             @method('PUT')
                         @endif
                             @csrf
@@ -238,8 +238,24 @@
                                     </div>
                                 </div>
                                 @endif
-                                
-                                
+                                {{-- <div class="form-group">
+                                    <label for="">Upload Foto Di Tempat Bekerja</label>
+                                    <input type="file" name="attendance_image" class="form-control-file">
+                                    @error('photo')
+                                        <div class="text-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div> --}}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" name="attendance_image" id="inputGroupFile01">
+                                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    </div>
+                                  </div>
                             </div>
                             <!-- /.card-body -->
                             @if (!$registered_attendance)

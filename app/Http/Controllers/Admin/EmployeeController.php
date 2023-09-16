@@ -27,7 +27,7 @@ class EmployeeController extends Controller
     public function create() {
         $data = [
             'departments' => Department::all(),
-            'desgs' => ['Manajer', 'Asisten Manajer', 'Kepala Divisi', 'Staff']
+            'desgs' => ['Manajer', 'Asisten Manajer', 'Kepala Divisi', 'Staff','Magang']
         ];
         return view('admin.employees.create')->with($data);
     }
@@ -101,6 +101,7 @@ class EmployeeController extends Controller
             $employees = $this->attendanceByDate(Carbon::now());
         }
         $data['employees'] = $employees;
+        // dd($employees);
         // dd($employees->get(4)->attendanceToday->id);
         return view('admin.employees.attendance')->with($data);
     }

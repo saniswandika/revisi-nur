@@ -72,11 +72,13 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Nama</th>
+                                    <th>Foto Bukti Kerja</th>
                                     <th>Riwayat Database</th>
                                     <th class="none">Riwayat Awal Absensi</th>
                                     <th>Riwayat Absensi</th>
                                     <th class="none">Riwayat Akhir Absensi</th>
-                                    <th>Lokasi</th>
+                                    {{-- <th>Jabatan</th> --}}
+                                    {{-- <th>Lokasi</th> --}}
                                     <th>Jabatan</th>
                                     <th class="none">Aksi</th>
                                 </tr>
@@ -85,8 +87,13 @@
                                 @foreach ($employees as $index => $employee)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $employee->first_name.' '.$employee->last_name }}</td>
+                                    <td>
+                                        {{ $employee->first_name.' '.$employee->last_name }}
+                                    </td>
+                                    
+                                     
                                     @if($employee->attendanceToday)
+                                        <td><img src="{{ asset('img/'.$employee->attendanceToday->attendance_images) }}"  class="img-fluid img-thumbnail"  alt=""></td>
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-success">Terekam</span></h6></td>
                                         <td>
                                             Terekam sejak {{ $employee->attendanceToday->created_at->format('H:i:s') }} dari {{ $employee->attendanceToday->entry_location}} dengan alamat IP {{ $employee->attendanceToday->entry_ip}}
@@ -101,20 +108,25 @@
                                             <td>
                                                 Terekam sejak {{ $employee->attendanceToday->updated_at->format('H:i:s') }} dari {{ $employee->attendanceToday->exit_location}} dengan alamat IP {{ $employee->attendanceToday->exit_ip}}
                                             </td>
+                                            {{-- <td>
+                                                {{ $employee->attendanceToday->id }}
+                                            </td> --}}
                                     @else
+                                        <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Foto Bukti Kerja</span></h6></td>
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                         <td><h6 class="text-center"><span class="badge badge-pill badge-danger">Belum Ada Riwayat</span></h6></td>
                                     @endif
-                                    <td>
+                                    {{-- <td>
                                     <?php 
                                     $conn = mysqli_connect("localhost","root","","absensi");
                                     $loc2=mysqli_query($conn,"SELECT * FROM attendances"); 
                                     while($loc=mysqli_fetch_array($loc2)) {
                                     if(!empty($loc['entry_location'])) { 
                                         echo $loc['entry_location']; 
-                                    } else { echo " - ";} }?></td>
+                                    } else { echo " - ";} }?>
+                                    </td> --}}
                                     <td>{{ $employee->desg }}</td>
                                     <td>
                                         @if($employee->attendanceToday)

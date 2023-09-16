@@ -75,6 +75,18 @@ class LeaveController extends Controller
         } else {
             $values['start_date'] = Carbon::parse($request->input('date'));
         }
+        if ($request->hasFile('attachment')) {
+            $attachment = $request->file('attachment');
+    
+            // Membuat nama unik untuk berkas
+            $attachmentName = time() . '_' . $attachment->getClientOriginalName();
+    
+            // Menyimpan berkas ke dalam folder 'public/attachments'
+            $attachment->move(public_path('attachments'), $attachmentName);
+    
+            // Menyimpan nama berkas di database
+            $values['attachment'] = 'attachments/' . $attachmentName;
+        }
         Leave::create($values);
         $request->session()->flash('success', 'Pengajuan Cuti Anda berhasil, tunggu persetujuan atasan.'); return redirect()->route('employee.leaves.create')->with($data); }
     }
