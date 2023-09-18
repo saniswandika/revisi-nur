@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="csrf-token" content="{{ Session::token() }}"> 
-        <title>Web Absensi | Dashboard</title>
+        <title>TV Harmoni - Dashboard</title>
         {{-- favicon --}}
         <link rel="icon" href="/img/partner.png">
         <!-- Tell the browser to be responsive to screen width -->
@@ -83,14 +83,7 @@
                 @yield('content')
                 </div>
                 <footer class="main-footer">
-                    <strong
-                        >Dibuat Dadakan &copy; 8-10 Desember 2021, oleh
-                        <a href="https://linkedin.com/in/firyanul-rizky-1593b5139/">Firyanul Rizky</a>.</strong
-                    >
-                    Maaf jika masih banyak kekurangan.
-                    <div class="float-right d-none d-sm-inline-block">
-                        <b>Versi</b> 1.0.0
-                    </div>
+                    
                 </footer>
                 <!-- Control Sidebar -->
                 <aside class="control-sidebar control-sidebar-dark">

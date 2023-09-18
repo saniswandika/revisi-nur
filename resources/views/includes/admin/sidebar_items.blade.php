@@ -1,3 +1,8 @@
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="info">
+        <a href="#" class="d-block">Absensi</a>
+    </div>
+</div>
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
         <i class="nav-icon fa fa-calendar-check-o"></i>
@@ -66,6 +71,57 @@
             </a>
         </li> -->
     </ul>
+</li>
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="info">
+        <a href="#" class="d-block">Keperluan Streaming</a>
+    </div>
+</div>
+<li class="nav-item">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+                Operasional
+        </p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+                Inventaris
+            
+        </p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+                Jadwal
+        </p>
+    </a>
+</li>
+<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="info">
+        <a href="#" class="d-block">Management Akun Aplikasi</a>
+    </div>
+</div>
+<li class="nav-item">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+                List Roles
+        </p>
+    </a>
+</li>
+<li class="nav-item">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <p>
+                Management Akun
+        </p>
+    </a>
 </li>
 <!-- <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
