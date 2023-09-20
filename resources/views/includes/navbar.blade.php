@@ -23,6 +23,7 @@
                 @endif
                 <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
+            
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <li class="user-header bg-primary">
                 @if (Auth::user()->employee)
