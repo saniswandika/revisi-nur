@@ -42,7 +42,7 @@ INSERT IGNORE INTO `departments` (`id`, `name`, `created_at`, `updated_at`) VALU
 	(1, 'Backend Developer', '2021-12-09 03:49:38', '2021-12-09 03:50:28'),
 	(2, 'Frontend Developer', '2023-09-16 10:24:45', '2023-09-16 10:24:46');
 
-CREATE TABLE IF NOT EXISTS `employees` (
+CREATE TABLE IF NOT EXISTS `employees` (  
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
   `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,

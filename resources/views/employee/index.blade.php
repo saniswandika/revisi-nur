@@ -35,7 +35,6 @@
         <div class="col-md-8 mx-auto">
           <div class="jumbotron">
             <h1 class="display-4 text-primary">Selamat Datang di Panel Karyawan Website Absensi</h1>
-            <p class="lead">Dibuat untuk memenuhi Technical Test PT. Pilarmedia Indonesia</p>
             <hr class="my-4">
             <p>Silahkan Mulai Absensi,
               @if ($employee->sex == 'Male')
