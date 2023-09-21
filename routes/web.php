@@ -59,6 +59,25 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware(['auth','
     Route::put('/holidays/{holiday_id}', 'HolidayController@update')->name('holidays.update');
     Route::delete('/holidays/{holiday_id}', 'HolidayController@destroy')->name('holidays.delete');
     // Routes for holidays //
+
+    Route::get('/inventaris/list-inventaris', 'inventarisController@index')->name('inventaris.index');
+    Route::get('/inventaris/add-holiday', 'inventarisController@create')->name('inventaris.create');
+    Route::post('/inventaris', 'inventarisController@store')->name('inventaris.store');
+    Route::put('/inventaris/{id}', 'inventarisController@update')->name('inventaris.update');
+    Route::delete('/inventaris/{id}', 'inventarisController@destroy')->name('inventaris.delete');
+
+    Route::get('/jadwal/list-jadwal', 'jadwalController@index')->name('jadwals.index');
+    Route::get('/jadwal/add-holiday', 'jadwalController@create')->name('jadwals.create');
+    Route::post('/jadwal', 'jadwalController@store')->name('jadwals.store');
+    Route::put('/jadwal/{id}', 'jadwalController@update')->name('jadwals.update');
+    Route::delete('/jadwal/{id}', 'jadwalController@destroy')->name('jadwals.delete');
+
+    Route::get('/pemakaian/list-pemakaian', 'pemakaianController@index')->name('pemakaians.index');
+    Route::get('/pemakaian/add-holiday', 'pemakaianController@create')->name('pemakaians.create');
+    Route::post('/pemakaian', 'pemakaianController@store')->name('pemakaians.store');
+    Route::put('/pemakaian/{id}', 'pemakaianController@update')->name('pemakaians.update');
+    Route::delete('/pemakaian/{id}', 'pemakaianController@destroy')->name('pemakaians.delete');
+
 });
 
 Route::namespace('Employee')->prefix('employee')->name('employee.')->middleware(['auth','can:employee-access'])->group(function () {

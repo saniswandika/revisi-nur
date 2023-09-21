@@ -78,7 +78,7 @@
     </div>
 </div>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{route('admin.pemakaians.index')}}" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
                 Operasional
@@ -86,7 +86,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{route('admin.inventaris.index')}}" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
                 Inventaris
@@ -95,7 +95,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{route('admin.jadwals.index')}}" class="nav-link">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
                 Jadwal
@@ -108,21 +108,23 @@
     </div>
 </div>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="#" class="nav-link" onclick="showAlert()">
         <i class="nav-icon fas fa-tachometer-alt"></i>
-        <p>
-                List Roles
-        </p>
+        <p>List Roles</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="#" class="nav-link" onclick="showAlert()">
         <i class="nav-icon fas fa-tachometer-alt"></i>
-        <p>
-                Management Akun
-        </p>
+        <p>Management Akun</p>
     </a>
 </li>
+
+<script>
+    function showAlert() {
+        alert("Maaf sedang dalam pengembangan - Nur Fitriani");
+    }
+</script>
 <!-- <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
         <i class="nav-icon fa fa-calendar-minus-o"></i>
